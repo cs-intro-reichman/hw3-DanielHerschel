@@ -25,43 +25,100 @@ public class Algebra {
 
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+        if (x2 == 0) return x1;
+
+        if (x2 < 0) return minus(x1, -x2);
+
+		int sum = x1;
+        for (int i = 0; i < x2; i++) {
+            sum++;
+        }
+		return sum;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+        if (x2 == 0) return x1;
+
+        if (x2 < 0) return plus(x1, -x2);
+
+		int diff = x1;
+        for (int i = 0; i < x2; i++) {
+            diff--;
+        }
+		return diff;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+        if (x2 == 0 || x1 == 0) return 0;
+
+        boolean negative = (x1 < 0) ^ (x2 < 0);
+
+        if (x1 < 0) x1 = -x1;
+        if (x2 < 0) x2 = -x2;
+
+        int mul = x1;
+        for (int i = 0; i < x2 - 1; i++) {
+            mul = plus(mul, x1);
+        }
+
+        if (negative) return -mul;
+		return mul;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		// Replace the following statement with your code
-		return 0;
+        if (n == 0) return 1;
+
+		int power = x;
+        for (int i = 0; i < n - 1; i++) {
+            power = times(power, x);
+        }
+		return power;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+
+        if (x2 == 0) throw new IllegalArgumentException("Division by zero");
+        if (x1 == 0) return 0;
+
+        boolean negative = (x1 < 0) ^ (x2 < 0);
+
+        if (x1 < 0) x1 = -x1;
+        if (x2 < 0) x2 = -x2;
+
+        int product = x1;
+        int quotient = 0;
+        while (product >= x2) {
+            product = minus(product, x2);
+            quotient++;
+        }
+
+        if (negative) return -quotient;
+		return quotient;
 	}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
-	}	
+        int product = x1;
+        while (product >= x2) {
+            product = minus(product, x2);
+        }
+        return product;
+	}
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-		// Replace the following statement with your code
-		return 0;
+        for (int i = 0; ; i++) {
+            int square = times(i, i);
+            if (square == x) {
+                return i;
+            }
+            if (square > x) {
+                return minus(i, 1);
+            }
+        }
 	}	  	  
 }
