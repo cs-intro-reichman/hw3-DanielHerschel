@@ -85,7 +85,7 @@
         "setup": "javac TestAnagram.java Anagram.java",
         "run": "java TestAnagram",
         "input": "",
-        "output": "\nTesting preProcess method:\nTest 1 (simple lowercase): PASS\nTest 2 (preserve spaces): PASS\nTest 3 (case conversion): PASS\nTest 4 (empty string): PASS\n\nTesting randomAnagram method:\nTest 1 (is anagram): PASS\nTest 2 (same length): PASS\nTest 3 (randomness): PASS",
+        "output": "\nTesting preProcess method:\nTest 1 (simple lowercase): PASS\nTest 2 (remove spaces): PASS\nTest 3 (case conversion): PASS\nTest 4 (empty string): PASS\n\nTesting randomAnagram method:\nTest 1 (is anagram): PASS\nTest 2 (same length): PASS\nTest 3 (randomness): PASS",
         "comparison": "included",
         "timeout": 10,
         "points": 20
